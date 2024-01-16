@@ -74,6 +74,10 @@ const ConnectMetaMask: FC = () => {
         }
     }
 
+    const installMetaMask = () => {
+        window.open('https://metamask.io/download.html', '_blank');
+    }
+
     useEffect(() => {
         const getProvider = async () => {
             try {
@@ -97,6 +101,7 @@ const ConnectMetaMask: FC = () => {
             window.ethereum.removeListener("accountsChanged", refreshAccounts)
         }
     }, [])
+
     return (
         <>
             {hasProvider && !hasConnected &&
@@ -104,7 +109,7 @@ const ConnectMetaMask: FC = () => {
             }
 
             {!hasProvider &&
-                <button>Install MetaMask</button>
+                <button onClick={installMetaMask}>Install MetaMask</button>
             }
 
             {hasConnected &&
