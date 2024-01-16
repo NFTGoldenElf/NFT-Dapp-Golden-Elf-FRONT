@@ -1,8 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER
+} from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
-import counterReducer from './slices/counterSlice';
+import walletReducer from './slices/walletSlice'
 
 const persistConfig = {
     key: 'root',
@@ -10,13 +19,27 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    counter: counterReducer
+    wallet: walletReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-    reducer: persistedReducer
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [
+                    FLUSH,
+                    REHYDRATE,
+                    PAUSE,
+                    PERSIST,
+                    PURGE,
+                    REGISTER,
+                    'wallet/updateWallet'
+                ]
+            }
+        })
 })
 
 export const persistor = persistStore(store);
