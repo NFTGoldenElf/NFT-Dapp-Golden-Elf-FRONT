@@ -84,10 +84,10 @@ const ConnectMetaMask: FC = () => {
                 const provider = await detectEthereumProvider({ silent: true })
                 const hasProvider = Boolean(provider);
                 setHasProvider(hasProvider)
-                if (wallet.accounts[0].length > 0 && hasProvider) {
+                if (wallet.accounts.length > 0 && wallet.accounts[0].length > 0 && hasProvider) {
                     setHasConnected(true)
                 }
-                window.ethereum.on("accountsChanged", refreshAccounts)
+                window.ethereum?.on("accountsChanged", refreshAccounts)
             }
             catch (error) {
                 setHasConnected(false)
@@ -98,7 +98,7 @@ const ConnectMetaMask: FC = () => {
         }
         getProvider()
         return () => {
-            window.ethereum.removeListener("accountsChanged", refreshAccounts)
+            window.ethereum?.removeListener("accountsChanged", refreshAccounts)
         }
     }, [])
 
