@@ -1,9 +1,9 @@
-export const formatBalance = (rawBalance: string) => {
-    const balance = (parseInt(rawBalance) / 1000000000000000000).toFixed(2)
-    return balance
+export const formatBalance = (rawBalance: number) => {
+    const balance = rawBalance.toFixed(2)
+    return `${balance} ETH`
 }
 
-export const formatChainAsNum = (chainIdHex: string) => {
-    const chainIdNum = parseInt(chainIdHex)
+export const formatChainAsNum = (chainId: bigint) => {
+    const chainIdNum = Number(chainId)
     return chainIdNum
 }

@@ -36,7 +36,7 @@ export const store = configureStore({
                     PERSIST,
                     PURGE,
                     REGISTER,
-                    'wallet/updateWallet'
+                    'wallet/setWallet'
                 ]
             }
         })

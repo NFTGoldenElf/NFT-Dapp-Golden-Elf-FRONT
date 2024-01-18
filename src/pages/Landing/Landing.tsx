@@ -3,7 +3,9 @@ import ConnectMetaMask from "../../components/ConnectMetaMask/ConnectMetaMask";
 
 const Landing: FC = () => {
     return (
-        <ConnectMetaMask/>
+        <>
+            <ConnectMetaMask />
+        </>
     )
 }
 

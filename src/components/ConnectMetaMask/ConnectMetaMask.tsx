@@ -5,20 +5,21 @@ import detectEthereumProvider from '@metamask/detect-provider';
 import { WalletState } from "../../redux/slices/walletSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 import { formatBalance, formatChainAsNum } from "../../utils/utils";
-import { updateWallet, resetWallet } from "../../redux/slices/walletSlice";
+import { setWallet, resetWallet } from "../../redux/slices/walletSlice";
+import Web3 from "web3";
 
 class Wallet implements WalletState {
     accounts: string[];
     balance: string;
-    chainId: string;
-    numericChainId: number;
-    constructor(accounts: string[], balance: string, chainId: string, numericChainId: number) {
+    chainId: number;
+    constructor(accounts: string[], balance: string, chainId: number) {
         this.accounts = accounts;
         this.balance = balance;
         this.chainId = chainId;
-        this.numericChainId = numericChainId
     }
 }
+
+const web3 = new Web3(window.ethereum || "");
 
 const ConnectMetaMask: FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -29,99 +30,85 @@ const ConnectMetaMask: FC = () => {
 
     const wallet = useSelector((state: RootState) => state.wallet)
 
+    useEffect(() => {
+        const getProvider = async () => {
+            const provider = await detectEthereumProvider({ silent: true });
+            const hasProvider = Boolean(provider)
+            setHasProvider(hasProvider);
+        }
+        if (wallet.accounts.length > 0) setHasConnected(true)
+        window.ethereum.on("accountsChanged", refreshAccounts)
+        window.ethereum.on("chainChanged", refreshChain)
+        getProvider();
+        return () => {
+            window.ethereum.removeListener("accountsChanged", refreshAccounts);
+            window.ethereum.removeListener("chainChanged", refreshChain);
+        }
+    }, [])
+
     const handleConnect = async () => {
         try {
-            const accounts: string[] = await window.ethereum.request({
-                method: 'eth_requestAccounts'
-            });
-            updateWalletData(accounts);
-            setHasConnected(true)
+            setError("");
+            const accounts = await web3.eth.getAccounts();
+            updateWallet(accounts)
         }
         catch (error) {
-            setHasConnected(false)
-            setError("Ha fallado la conexión con MetaMask.")
+            setError("Ha ocurrido un error en la conexión con MetaMask. Vuelva a intentarlo.");
+            setHasConnected(false);
+        }
+    }
+
+    const refreshAccounts = (accounts: string[]) => {
+        if (accounts.length > 0) updateWallet(accounts)
+    }
+
+    const refreshChain = async () => {
+        updateWallet(wallet.accounts)
+    }
+
+    const updateWallet = async (accounts: string[]) => {
+        if (accounts.length === 0) {
+            setHasConnected(false);
             dispatch(resetWallet());
+            return;
         }
-    }
-
-    const updateWalletData = async (accounts: string[]) => {
         try {
-            const balance = formatBalance(await window.ethereum.request({
-                method: "eth_getBalance",
-                params: [accounts[0], "latest"],
-            }))
-            const chainId = await window.ethereum.request({
-                method: "eth_chainId"
-            })
-            const numericChainId = formatChainAsNum(chainId)
-            const wallet = new Wallet(accounts, balance, chainId, numericChainId)
-            dispatch(updateWallet(wallet))
-            setHasConnected(true)
+            const chainId: number = formatChainAsNum(await web3.eth.getChainId());
+            const rawBalance = web3.utils.fromWei(await web3.eth.getBalance(accounts[0]), "ether");
+            const balance: string = formatBalance(Number(rawBalance));
+            const wallet = new Wallet(accounts, balance, chainId);
+            dispatch(setWallet(wallet));
+            setHasConnected(true);
+            setError("")
         }
         catch (error) {
-            setHasConnected(false)
-            setError('Algo ha salido mal en la conexión.')
-            dispatch(resetWallet())
-        }
-    }
-
-    const refreshAccounts = async (accounts: string[]) => {
-        if (accounts.length > 0) {
-            updateWalletData(accounts);
-        } else {
+            setError("Ha ocurrido un error durante la obtención de datos de la cuenta. Vuelva a intentarlo.");
             setHasConnected(false);
             dispatch(resetWallet());
         }
     }
 
-    const installMetaMask = () => {
-        window.open('https://metamask.io/download.html', '_blank');
-    }
-
-    useEffect(() => {
-        const getProvider = async () => {
-            try {
-                const provider = await detectEthereumProvider({ silent: true })
-                const hasProvider = Boolean(provider);
-                setHasProvider(hasProvider)
-                if (wallet.accounts.length > 0 && wallet.accounts[0].length > 0 && hasProvider) {
-                    setHasConnected(true)
-                }
-                window.ethereum?.on("accountsChanged", refreshAccounts)
-            }
-            catch (error) {
-                setHasConnected(false)
-                setError("Algo ha salido mal.")
-                dispatch(resetWallet())
-            }
-
-        }
-        getProvider()
-        return () => {
-            window.ethereum?.removeListener("accountsChanged", refreshAccounts)
-        }
-    }, [])
-
     return (
         <>
+            {!hasProvider &&
+                <button>Install MetaMask</button>
+            }
+
             {hasProvider && !hasConnected &&
                 <button onClick={handleConnect}>Connect MetaMask</button>
             }
 
-            {!hasProvider &&
-                <button onClick={installMetaMask}>Install MetaMask</button>
-            }
-
-            {hasConnected &&
+            {hasProvider && hasConnected &&
                 <>
-                    <div>Dirección de la cuenta: {wallet.accounts[0]}</div>
+                    <div>Dirección pública de la cuenta: {wallet.accounts[0]}</div>
                     <div>Balance de la cuenta: {wallet.balance}</div>
                     <div>Id de cadena: {wallet.chainId}</div>
-                    <div>Id de cadena como número: {wallet.numericChainId}</div>
                 </>
             }
 
-            {error.length > 0 && <div>{error}</div>}
+            {error.length !== 0 &&
+                <div>{error}</div>
+            }
 
         </>
     )
