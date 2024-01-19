@@ -11,7 +11,8 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
-import walletReducer from './slices/walletSlice'
+import walletReducer from './slices/walletSlice';
+import userReducer from './slices/userSlice';
 
 const persistConfig = {
     key: 'root',
@@ -19,7 +20,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-    wallet: walletReducer
+    wallet: walletReducer,
+    user: userReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -36,7 +38,8 @@ export const store = configureStore({
                     PERSIST,
                     PURGE,
                     REGISTER,
-                    'wallet/setWallet'
+                    'wallet/setWallet',
+                    'user/loadUserInfo'
                 ]
             }
         })
