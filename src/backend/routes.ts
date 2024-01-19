@@ -3,5 +3,7 @@ const BASE_API: string = '/api/v1'
 
 export const USER_ROUTES = {
     getUsers: `${BASE_API}/users`,
+    findUser: (address: string) => `${BASE_API}/users/findbyaddress/${address}`,
+    createUser: `${BASE_API}/users`
 }
 

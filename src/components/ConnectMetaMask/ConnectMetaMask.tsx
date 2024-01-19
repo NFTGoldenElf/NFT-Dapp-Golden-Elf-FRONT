@@ -5,6 +5,10 @@ import { getWalletData } from "../../utils/utils";
 import { setWallet, resetWallet } from "../../redux/slices/walletSlice";
 import { useNavigate } from "react-router-dom";
 import Web3 from "web3";
+import APICall from "../../backend/axiosInstance";
+import { USER_ROUTES } from "../../backend/routes";
+import { uuidV4 } from "web3-utils";
+import { deleteUserInfo, loadUserInfo } from "../../redux/slices/userSlice";
 
 const web3 = new Web3(window.ethereum || "");
 
@@ -17,18 +21,6 @@ const ConnectMetaMask: FC<{ hasProvider: boolean | null }> = ({ hasProvider }) =
     const handleConnect = async () => {
         try {
             await window.ethereum.request({ method: 'eth_requestAccounts' });
-            const accounts = await web3.eth.getAccounts();
-            updateWallet(accounts)
-        }
-        catch (error) {
-            dispatch(resetWallet());
-        }
-    }
-
-    const updateWallet = async (accounts: string[]) => {
-        try {
-            const wallet = await getWalletData(accounts)
-            dispatch(setWallet(wallet));
         }
         catch (error) {
             dispatch(resetWallet());

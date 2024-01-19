@@ -7,12 +7,13 @@ const Profile: FC = () => {
     const dispatch = useDispatch<AppDispatch>();
 
     const wallet = useSelector((state: RootState) => state.wallet);
+    const user = useSelector((state: RootState) => state.user);
 
     return (
         <>
-            <img src={Placeholder} width={"180px"}/>
+            <img src={user.profilePhoto} width={"180px"}/>
             <div>
-                Nombre de usuario:
+                Nombre de usuario: {user.username}
             </div>
             <div>
                 Dirección de la cuenta: {wallet.accounts[0]}
