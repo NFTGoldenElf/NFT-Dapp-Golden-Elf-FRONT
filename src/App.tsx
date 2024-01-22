@@ -2,13 +2,18 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import Landing from './pages/Landing/Landing'
 import Profile from './pages/Profile/Profile'
-import { Wallet, web3, formatBalance, formatChainAsNum } from './utils/utils'
+import { web3, getWalletData } from './utils/utils'
 import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { AppDispatch } from './redux/store'
 import detectEthereumProvider from '@metamask/detect-provider'
 import { resetWallet, setWallet } from './redux/slices/walletSlice'
 import { useNavigate } from 'react-router-dom'
+import APICall from './backend/axiosInstance'
+import { deleteUserInfo, loadUserInfo } from './redux/slices/userSlice'
+import { USER_ROUTES } from './backend/routes'
+import { uuidV4 } from 'web3-utils'
+import Cloudinary from './pages/CloudinaryTest/CloudinaryTest'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -28,6 +33,8 @@ function App() {
         if (accounts.length <= 0) {
           dispatch(resetWallet());
           navigate('/')
+        } else {
+          updateAccount()
         }
       }
     }
@@ -38,34 +45,45 @@ function App() {
     }
   }, [])
 
-  const refreshAccounts = (accounts: string[]) => {
+  const refreshAccounts = async (accounts: string[]) => {
     if (accounts.length <= 0) {
       dispatch(resetWallet());
       navigate('/')
       return;
     }
-    updateWallet(accounts)
+    updateAccount()
   }
 
   const refreshChain = async () => {
     try {
-      const accounts = await web3.eth.getAccounts();
-      updateWallet(accounts);
+      updateAccount();
     }
     catch (error) {
       handleError()
     }
   }
 
-  const updateWallet = async (accounts: string[]) => {
+  const updateAccount = async () => {
     try {
-      const chainId = formatChainAsNum(await web3.eth.getChainId());
-      const rawBalance = web3.utils.fromWei(await web3.eth.getBalance(accounts[0]), "ether");
-      const balance = formatBalance(Number(rawBalance));
-      const wallet = new Wallet(accounts, balance, chainId);
+      const accounts = await web3.eth.getAccounts();
+      const wallet = await getWalletData(accounts)
       dispatch(setWallet(wallet));
+      const user = await APICall.get(USER_ROUTES.findUser(accounts[0]));
+      const exist = user.data.exist;
+      if (exist) {
+        const { exist, ...result } = user.data;
+        dispatch(loadUserInfo(result));
+      } else {
+        const newUser = await APICall.post(USER_ROUTES.createUser, {
+          accountAddress: accounts[0],
+          username: uuidV4(),
+          profilePhoto: "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+        })
+        dispatch(loadUserInfo(newUser.data))
+      }
     }
     catch (error) {
+      dispatch(deleteUserInfo());
       handleError()
     }
   }
@@ -79,6 +97,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing hasProvider={hasProvider} />} />
         <Route path='/perfil' element={<Profile />} />
+        <Route path='/test' element={<Cloudinary />} />
       </Routes>
     </>
   )

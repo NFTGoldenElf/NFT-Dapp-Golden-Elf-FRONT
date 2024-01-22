@@ -1,12 +1,9 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from "../../redux/store";
-import { getWalletData } from "../../utils/utils";
-import { setWallet, resetWallet } from "../../redux/slices/walletSlice";
+import { resetWallet, setWallet } from "../../redux/slices/walletSlice";
 import { useNavigate } from "react-router-dom";
-import Web3 from "web3";
-
-const web3 = new Web3(window.ethereum || "");
+import { getWalletData, web3 } from "../../utils/utils";
 
 const ConnectMetaMask: FC<{ hasProvider: boolean | null }> = ({ hasProvider }) => {
     const dispatch = useDispatch<AppDispatch>();
@@ -16,19 +13,14 @@ const ConnectMetaMask: FC<{ hasProvider: boolean | null }> = ({ hasProvider }) =
 
     const handleConnect = async () => {
         try {
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
+            //In case an error occurs while mounting the application, the following code will allow the connect button with MetaMask to continue working correctly
             const accounts = await web3.eth.getAccounts();
-            updateWallet(accounts)
-        }
-        catch (error) {
-            dispatch(resetWallet());
-        }
-    }
-
-    const updateWallet = async (accounts: string[]) => {
-        try {
-            const wallet = await getWalletData(accounts)
-            dispatch(setWallet(wallet));
+            if (accounts.length) {
+                const walletData = await getWalletData(accounts);
+                dispatch(setWallet(walletData))
+            }
+            //---
+            await window.ethereum.request({ method: 'eth_requestAccounts' });
         }
         catch (error) {
             dispatch(resetWallet());

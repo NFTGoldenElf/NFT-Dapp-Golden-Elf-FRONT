@@ -7,6 +7,14 @@ const Landing: FC<
     }> = ({ hasProvider }) => {
         return (
             <>
+            <header>
+                <nav>
+                </nav>
+            </header>
+
+            <footer>
+
+            </footer>
                 <ConnectMetaMask hasProvider={hasProvider} />
             </>
         )
