@@ -13,6 +13,7 @@ import APICall from './backend/axiosInstance'
 import { deleteUserInfo, loadUserInfo } from './redux/slices/userSlice'
 import { USER_ROUTES } from './backend/routes'
 import { uuidV4 } from 'web3-utils'
+import Cloudinary from './pages/CloudinaryTest/CloudinaryTest'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -32,6 +33,8 @@ function App() {
         if (accounts.length <= 0) {
           dispatch(resetWallet());
           navigate('/')
+        } else {
+          updateAccount()
         }
       }
     }
@@ -94,6 +97,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing hasProvider={hasProvider} />} />
         <Route path='/perfil' element={<Profile />} />
+        <Route path='/test' element={<Cloudinary />} />
       </Routes>
     </>
   )

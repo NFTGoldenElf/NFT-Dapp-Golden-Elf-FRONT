@@ -39,7 +39,8 @@ export const store = configureStore({
                     PURGE,
                     REGISTER,
                     'wallet/setWallet',
-                    'user/loadUserInfo'
+                    'user/loadUserInfo',
+                    'user/editUserInfo'
                 ]
             }
         })

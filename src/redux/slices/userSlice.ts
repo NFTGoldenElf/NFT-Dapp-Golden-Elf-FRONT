@@ -8,6 +8,11 @@ export type UserState = {
     _id: string;
 }
 
+export type UserEdit = {
+    username: string;
+    profilePhoto: string;
+}
+
 const initialState: UserState = {
     username: "",
     profilePhoto: "",
@@ -25,8 +30,11 @@ const userSlice = createSlice({
         deleteUserInfo: (state) => {
             return { ...state, ...initialState }
         },
+        editUserInfo: (state, action: PayloadAction<UserEdit>) => {
+            return { ...state, ...action.payload }
+        }
     }
 });
 
-export const { loadUserInfo, deleteUserInfo } = userSlice.actions;
+export const { loadUserInfo, deleteUserInfo, editUserInfo } = userSlice.actions;
 export default userSlice.reducer;
