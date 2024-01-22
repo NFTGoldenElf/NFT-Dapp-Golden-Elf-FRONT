@@ -9,7 +9,7 @@ const Landing: FC<
             <>
             <header className="w-screen h-20 bg-blue-900">
                 <nav>
-                    <ul className="flex display-flex">
+                    <ul className="flex">
                         <li>
                             Inicio
                         </li>
