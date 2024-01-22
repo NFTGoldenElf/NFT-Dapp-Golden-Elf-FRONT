@@ -7,8 +7,16 @@ const Landing: FC<
     }> = ({ hasProvider }) => {
         return (
             <>
-            <header>
+            <header className="w-screen h-20 bg-blue-900">
                 <nav>
+                    <ul className="flex display-flex">
+                        <li>
+                            Inicio
+                        </li>
+                        <li>
+                            Sobre Nosotros
+                        </li>
+                    </ul>
                 </nav>
             </header>
 
