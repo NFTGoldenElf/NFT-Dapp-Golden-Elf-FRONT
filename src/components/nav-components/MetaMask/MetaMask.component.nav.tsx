@@ -1,14 +1,15 @@
 import { FC } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from "../../redux/store";
-import { resetWallet, setWallet } from "../../redux/slices/walletSlice";
+import { AppDispatch, RootState } from "../../../redux/store";
+import { resetWallet, setWallet } from "../../../redux/slices/walletSlice";
 import { useNavigate } from "react-router-dom";
-import { getWalletData, web3 } from "../../utils/utils";
+import { getWalletData, web3 } from "../../../utils/utils";
 
-const ConnectMetaMask: FC<{ hasProvider: boolean | null }> = ({ hasProvider }) => {
+const ConnectMetaMask: FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
+    const { hasProvider } = useSelector((state: RootState) => state.provider)
     const wallet = useSelector((state: RootState) => state.wallet)
 
     const handleConnect = async () => {
@@ -27,11 +28,15 @@ const ConnectMetaMask: FC<{ hasProvider: boolean | null }> = ({ hasProvider }) =
         }
     }
 
+    const redirectToInstallMetaMask = () => {
+        window.open('https://metamask.io/download.html', '_blank')
+    }
+
     return (
         <>
             {!hasProvider &&
                 <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
-                    <button>Instala MetaMask</button>
+                    <button onClick={redirectToInstallMetaMask}>Instala MetaMask</button>
                 </div>
 
             }

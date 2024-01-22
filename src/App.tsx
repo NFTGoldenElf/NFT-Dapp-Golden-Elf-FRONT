@@ -13,18 +13,18 @@ import APICall from './backend/axiosInstance'
 import { deleteUserInfo, loadUserInfo } from './redux/slices/userSlice'
 import { USER_ROUTES } from './backend/routes'
 import { uuidV4 } from 'web3-utils'
+import MintNFT from './pages/MintNFT/MintNFT'
+import { hasProviderStatus } from './redux/slices/providerSlice'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const [hasProvider, setHasProvider] = useState<boolean | null>(null);
-
   useEffect(() => {
     const appConnectionStatus = async () => {
       const provider = await detectEthereumProvider({ silent: true })
       const hasProvider = Boolean(provider);
-      setHasProvider(hasProvider)
+      dispatch(hasProviderStatus(hasProvider))
       if (hasProvider) {
         web3.currentProvider!.on("accountsChanged", refreshAccounts);
         web3.currentProvider!.on("chainChanged", refreshChain);
@@ -94,8 +94,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Landing hasProvider={hasProvider} />} />
+        <Route path='/' element={<Landing/>} />
         <Route path='/perfil' element={<Profile />} />
+        <Route path='/crear' element={<MintNFT/>}/>
       </Routes>
     </>
   )

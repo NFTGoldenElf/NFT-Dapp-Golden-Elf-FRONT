@@ -1,5 +1,5 @@
 import { FC, MouseEvent } from "react";
-import EditUserForm from "../../pages/Profile/EditUserForm";
+import EditUserForm from "../containers/forms/EditUser/EditUser.form";
 
 interface ModalPasswordProps {
   isVisible: boolean;
@@ -10,15 +10,15 @@ interface ModalPasswordProps {
 const ModalEditUser: FC<ModalPasswordProps> = ({ isVisible, onClose, userId }) => {
   if (!isVisible) return null;
 
-const handleClose = (e: MouseEvent<HTMLDivElement>) => {
-  const target = e.target as HTMLDivElement;
+  const handleClose = (e: MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLDivElement;
 
-  if (target.id === "wrapper") {
+    if (target.id === "wrapper") {
+      onClose();
+    }
+  };
+  const handleSave = () => {
     onClose();
-  }
-};
-const handleSave = () => {
-    onClose(); 
   };
   return (
     <div
@@ -34,7 +34,7 @@ const handleSave = () => {
           X
         </button>
         <div className="">
-          <EditUserForm userId={userId} onSave={handleSave}/>
+          <EditUserForm userId={userId} onSave={handleSave} />
         </div>
       </div>
     </div>

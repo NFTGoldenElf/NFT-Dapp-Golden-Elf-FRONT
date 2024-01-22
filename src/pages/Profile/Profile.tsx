@@ -1,12 +1,13 @@
 import { FC, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import ModalEditUser from "../../components/Modals/EditUser";
+import EditUserForm from "../../containers/forms/EditUser/EditUser.form";
+import Modal from "../../containers/modals/ModalForm/ModalForm.modal";
 
 const Profile: FC = () => {
   const wallet = useSelector((state: RootState) => state.wallet);
   const user = useSelector((state: RootState) => state.user);
-  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200">
@@ -34,15 +35,15 @@ const Profile: FC = () => {
           <div>{wallet.chainId}</div>
         </div>
       </div>
-  
+
       <button
         className="text-gray-100 bg-gray-700 font-medium rounded-lg text-sm px-5 py-2.5 cursor-pencil"
-        onClick={() => setShowPasswordModal(true)}
+        onClick={() => setShowModal(true)}
       >
         Editar Usuario
       </button>
-  
-      <ModalEditUser isVisible={showPasswordModal} onClose={() => setShowPasswordModal(false)} userId={user._id} />
+
+      <Modal isVisible={showModal} onClose={() => setShowModal(false)} Component={EditUserForm} />
     </div>
   );
 };

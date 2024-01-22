@@ -1,11 +1,11 @@
 import { ObjectSchema, object, string, mixed } from "yup";
 
-type UserEditSchema = {
+type EditUserProps = {
     username: string;
-    profilePhoto: any
+    profilePhoto: any,
 }
 
-const EditUserSchema: ObjectSchema<UserEditSchema> = object({
+const EditUserSchema: ObjectSchema<EditUserProps> = object({
     username: string()
         .max(25, "El nombre de usuario puede contener hasta un máximo de 25 carácteres.")
         .required("Campo requerido."),
