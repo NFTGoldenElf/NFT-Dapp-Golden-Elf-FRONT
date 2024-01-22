@@ -30,18 +30,25 @@ const ConnectMetaMask: FC<{ hasProvider: boolean | null }> = ({ hasProvider }) =
     return (
         <>
             {!hasProvider &&
-                <button>Instala MetaMask</button>
+                <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
+                    <button>Instala MetaMask</button>
+                </div>
+
             }
 
             {hasProvider && wallet.accounts.length <= 0 &&
-                <button onClick={handleConnect}>Conecta MetaMask</button>
+                <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
+                    <button onClick={handleConnect}>Conecta MetaMask</button>
+                </div>
             }
 
             {hasProvider && wallet.accounts.length > 0 &&
-                <>
-                    <div>{wallet.balance}</div>
-                    <button onClick={() => navigate('/perfil')}>Ir al perfil</button>
-                </>
+                <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
+                    <label>{wallet.balance}</label>
+                    <button
+                        className="bg-red-900 p-2 rounded hover:shadow-2xl"
+                        onClick={() => navigate('/perfil')}>Ir al perfil</button>
+                </div>
             }
         </>
     )
