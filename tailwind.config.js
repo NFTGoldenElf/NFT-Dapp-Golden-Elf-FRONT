@@ -9,6 +9,9 @@ export default {
       height: {
         '8%': '8%',
         '72%': '72%',
+      },
+      cursor: {
+        'pencil': 'url("/pngegg.png"), pointer',
       }
     },
   },
