@@ -4,7 +4,7 @@ import Landing from './pages/Landing/Landing'
 import Profile from './pages/Profile/Profile'
 import { web3, getWalletData } from './utils/utils'
 import { useDispatch } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { AppDispatch } from './redux/store'
 import detectEthereumProvider from '@metamask/detect-provider'
 import { resetWallet, setWallet } from './redux/slices/walletSlice'
@@ -15,6 +15,7 @@ import { USER_ROUTES } from './backend/routes'
 import { uuidV4 } from 'web3-utils'
 import MintNFT from './pages/MintNFT/MintNFT'
 import { hasProviderStatus } from './redux/slices/providerSlice'
+import Test from './pages/Test/Test'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -97,6 +98,7 @@ function App() {
         <Route path='/' element={<Landing/>} />
         <Route path='/perfil' element={<Profile />} />
         <Route path='/crear' element={<MintNFT/>}/>
+        <Route path='/test' element={<Test/>}/>
       </Routes>
     </>
   )

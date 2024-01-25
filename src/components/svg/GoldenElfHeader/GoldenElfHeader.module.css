@@ -1,0 +1,14 @@
+@font-face {
+    font-family: PalatinoLinotype-Roman;
+    src: url(/fonts/palatinolinotype_roman.ttf);
+}
+
+.cls-1,
+.cls-2 {
+    fill: #fff;
+}
+
+.cls-2 {
+    font-family: PalatinoLinotype-Roman, 'Palatino Linotype';
+    font-size: 18.89px;
+}

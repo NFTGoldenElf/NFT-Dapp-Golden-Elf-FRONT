@@ -8,11 +8,14 @@ export default {
     extend: {
       height: {
         '8%': '8%',
-        '72%': '72%',
+        '104%': '106%',
+      },
+      width: {
+        'GoldenElfLogo': '800px'
       },
       cursor: {
         'pencil': 'url("/pngegg.png"), pointer',
-      }
+      },
     },
   },
   plugins: [],
