@@ -1,6 +1,5 @@
 import { FC } from "react";
 import NavBar from "../../containers/navbar/NavBar/NavBar.nav";
-import MetaMaskLogo from "../../components/svg/MetaMaskLogo/MetaMaskLogo";
 import GoldenElfLogo from "../../components/svg/GoldenElfLogo/GoldenElfLogo";
 import { FaDiscord } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";

@@ -33,3 +33,27 @@ body{
   height: 100vh;
 }
 
+@font-face {
+  font-family: 'GonB';
+  src: url('../public/fonts/Gontserrat-Bold.ttf')
+}
+@font-face {
+  font-family: 'GonM';
+  src: url('../public/fonts/Gontserrat-Medium.ttf')
+}
+@font-face {
+  font-family: 'GonR';
+  src: url('../public/fonts/Gontserrat-Regular.ttf')
+}
+@font-face {
+  font-family: 'MonM';
+  src: url('../public/fonts/Montserrat-Medium.ttf')
+}
+@font-face {
+  font-family: 'MonR';
+  src: url('../public/fonts/Montserrat-Regular.ttf')
+}
+@font-face {
+  font-family: 'pala';
+  src: url('../public/fonts/palatinolinotype_roman.ttf')
+}

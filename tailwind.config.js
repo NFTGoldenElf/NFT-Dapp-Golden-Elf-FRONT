@@ -13,12 +13,9 @@ export default {
       width: {
         'GoldenElfLogo': '800px'
       },
-      cursor: {
-        'pencil': 'url("/pngegg.png"), pointer',
-      },
       fontFamily: {
         'GonB': ['GonB', 'sans-serif'],
-        'GonM': ['GonM', 'sans-serif'],
+        'GonM': ['GonM', 'sans-serif'], 
         'GonR': ['GonR', 'sans-serif'],
         'MonM': ['MonM', 'sans-serif'],
         'MonR': ['MonR', 'sans-serif'],
