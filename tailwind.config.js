@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       height: {
-        '8%': '8%',
-        '104%': '106%',
+        '10%': '10%',
+        '106%': '106%',
       },
       width: {
         'GoldenElfLogo': '800px'
@@ -16,7 +16,19 @@ export default {
       cursor: {
         'pencil': 'url("/pngegg.png"), pointer',
       },
+      fontFamily: {
+        'GonB': ['GonB', 'sans-serif'],
+        'GonM': ['GonM', 'sans-serif'],
+        'GonR': ['GonR', 'sans-serif'],
+        'MonM': ['MonM', 'sans-serif'],
+        'MonR': ['MonR', 'sans-serif'],
+        'pala': ['pala', 'sans-serif'],
+      },
+      colors: {
+        'gold': '#635621',
+      },
     },
   },
   plugins: [],
+
 }

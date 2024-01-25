@@ -2,9 +2,10 @@ import styles from './MetaMaskLogo.module.css'
 import { FC } from 'react'
 import tailwindStyle from '../tailwindStyle'
 
-const MetaMaskLogo: FC<tailwindStyle> = ({ style }) => {
+const MetaMaskLogo: FC<tailwindStyle> = ({ style, onClickFunction }) => {
     return (
         <svg
+            onClick={onClickFunction}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 45.96 42.04"
             className={`${styles.svg} ${style}`}

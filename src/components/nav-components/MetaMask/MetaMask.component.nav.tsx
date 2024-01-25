@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from "../../../redux/store";
 import { resetWallet, setWallet } from "../../../redux/slices/walletSlice";
 import { useNavigate } from "react-router-dom";
 import { getWalletData, web3 } from "../../../utils/utils";
+import MetaMaskLogo from "../../svg/MetaMaskLogo/MetaMaskLogo";
 
 const ConnectMetaMask: FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -42,9 +43,7 @@ const ConnectMetaMask: FC = () => {
             }
 
             {hasProvider && wallet.accounts.length <= 0 &&
-                <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
-                    <button onClick={handleConnect}>Conecta MetaMask</button>
-                </div>
+                <MetaMaskLogo style="w-20 cursor-pointer " onClickFunction={handleConnect}/>
             }
 
             {hasProvider && wallet.accounts.length > 0 &&
