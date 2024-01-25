@@ -35,20 +35,20 @@ const ConnectMetaMask: FC = () => {
     return (
         <>
             {!hasProvider &&
-                <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
+                <div className="space-x-5 items-center flex justify-end">
                     <button onClick={redirectToInstallMetaMask}>Instala MetaMask</button>
                 </div>
 
             }
 
             {hasProvider && wallet.accounts.length <= 0 &&
-                <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
+                <div className="space-x-5 items-center flex  justify-end">
                     <button onClick={handleConnect}>Conecta MetaMask</button>
                 </div>
             }
 
             {hasProvider && wallet.accounts.length > 0 &&
-                <div className="space-x-5 items-center flex w-2/5 justify-end pr-4">
+                <div className="space-x-5 items-center flex  justify-end">
                     <label>{wallet.balance}</label>
                     <button
                         className="bg-red-900 p-2 rounded hover:shadow-2xl"
