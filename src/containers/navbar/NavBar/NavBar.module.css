@@ -1,0 +1,48 @@
+.nav {
+    position: relative;
+    font-family: MonM;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: #ffff;
+    font-size: 20px;
+}
+
+.ul-items {
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 100%;
+    align-items: center;
+    gap: 8%;
+    padding-left: 5%;
+}
+
+.other-container {
+    position: absolute;
+    left: 55%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.div-metamask {
+    position: absolute;
+    left: 15%;   
+}
+
+.div-golden-elf-header {
+    position: absolute;
+    right: 6%;
+}
+
+.div-idiom-selector {
+    width: 10%;
+    position: absolute;
+    left: 45%
+}
+
+.div-idiom-selector:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,54 @@
+.cls-1 {
+    font-size: 35.59px;
+    stroke-width: .25px;
+}
+
+.cls-1,
+.cls-2,
+.cls-3 {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+}
+
+.cls-1,
+.cls-4,
+.cls-5 {
+    font-family: GonB, GonR;
+    font-weight: 700;
+}
+
+.cls-2 {
+    opacity: .38;
+}
+
+.cls-6 {
+    letter-spacing: -.01em;
+}
+
+.cls-7 {
+    letter-spacing: 0em;
+}
+
+.cls-4 {
+    font-size: 36px;
+}
+
+.cls-4,
+.cls-5 {
+    fill: #fff;
+}
+
+.cls-8 {
+    letter-spacing: -.01em;
+}
+
+.cls-5 {
+    font-size: 98.27px;
+    letter-spacing: .01em;
+    opacity: .32;
+}
+
+.cls-9 {
+    letter-spacing: 0em;
+}

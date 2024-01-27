@@ -1,0 +1,35 @@
+.className-1,
+.className-2 {
+    fill: #fff;
+}
+
+.className-2,
+.className-3 {
+    opacity: .39;
+}
+
+.className-4 {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.className-4,
+.className-3,
+.className-5 {
+    fill: none;
+    stroke: #fff;
+}
+
+.className-4,
+.className-5 {
+    stroke-width: .25px;
+}
+
+.className-3,
+.className-5 {
+    stroke-miterlimit: 10;
+}
+
+.svg {
+    height: fit-content;
+}

@@ -1,0 +1,225 @@
+@font-face {
+    font-family: Gontserrat-Bold;
+    src: url(/fonts/Gontserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: Gontserrat;
+    src: url(/fonts/Gontserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: Gontserrat-Medium;
+    src: url(/fonts/Gontserrat-Medium.ttf);
+}
+
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url(/fonts/Montserrat-Medium.ttf);
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url(/fonts/Montserrat.ttf);
+}
+
+.cls-1 {
+    letter-spacing: 0em;
+}
+
+.cls-2 {
+    letter-spacing: 0em;
+}
+
+.cls-3 {
+    letter-spacing: -.03em;
+}
+
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8 {
+    fill: #fff;
+}
+
+.cls-9 {
+    letter-spacing: 0em;
+}
+
+.cls-10 {
+    letter-spacing: 0em;
+}
+
+.cls-11 {
+    letter-spacing: 0em;
+}
+
+.cls-12 {
+    letter-spacing: -.01em;
+}
+
+.cls-13,
+.cls-14,
+.cls-15,
+.cls-16,
+.cls-17,
+.cls-18,
+.cls-19 {
+    fill: none;
+}
+
+.cls-4-special {
+    backdrop-filter: grayscale(100%);
+    opacity: 1;
+}
+
+.cls-13,
+.cls-14,
+.cls-15,
+.cls-18,
+.cls-19 {
+    stroke-miterlimit: 10;
+}
+
+.cls-99 {
+    stroke-miterlimit: 10;
+    mix-blend-mode: darken;
+    stroke: #000;
+    stroke-width: 10;
+    backdrop-filter: grayscale(100%);
+    opacity: 1;
+}
+
+.backdrop {
+    backdrop-filter: grayscale(100%);
+}
+
+.cls-13,
+.cls-14,
+.cls-15,
+.cls-19 {
+    stroke: #fff;
+}
+
+.cls-20 {
+    font-size: 42.99px;
+}
+
+.cls-21 {
+    letter-spacing: -.05em;
+}
+
+.cls-22 {
+    font-size: 69.45px;
+}
+
+.cls-14 {
+    opacity: .39;
+    stroke-width: 4px;
+}
+
+.cls-5 {
+    font-family: Montserrat-Medium, Montserrat;
+    font-size: 14.37px;
+}
+
+.cls-5,
+.cls-8 {
+    font-weight: 500;
+}
+
+.cls-23 {
+    font-size: 68.78px;
+}
+
+.cls-24 {
+    letter-spacing: 0em;
+}
+
+.cls-15 {
+    stroke-width: .5px;
+}
+
+.cls-16 {
+    mix-blend-mode: color;
+}
+
+.cls-25 {
+    letter-spacing: 0em;
+}
+
+.cls-17 {
+    isolation: isolate;
+}
+
+.cls-26 {
+    letter-spacing: 0em;
+}
+
+.cls-27 {
+    letter-spacing: -.27;
+}
+
+.cls-28 {
+    letter-spacing: -.02em;
+}
+
+.cls-29 {
+    letter-spacing: 0em;
+}
+
+.cls-30 {
+    letter-spacing: -.03em;
+}
+
+.cls-6 {
+    opacity: .59;
+}
+
+.cls-18 {
+    mix-blend-mode: darken;
+    stroke: #000;
+}
+
+.cls-31 {
+    letter-spacing: 0em;
+}
+
+.cls-32 {
+    font-size: 43.41px;
+    letter-spacing: 0em;
+}
+
+.cls-33 {
+    font-size: 44.8px;
+}
+
+.cls-7,
+.cls-19 {
+    font-family: Gontserrat-Bold, Gontserrat;
+    font-weight: 700;
+}
+
+.cls-8 {
+    filter: url(#drop-shadow-1);
+    font-family: Gontserrat-Medium, 'Gontserrat Medium';
+    font-size: 12.33px;
+}
+
+.cls-19 {
+    stroke-width: .25px;
+}
+
+.cls-34 {
+    font-size: 71.68px;
+}
+
+.firstLine {
+    display: flex;
+    gap: 5
+}
+
+.svg {
+    height: fit-content;
+}

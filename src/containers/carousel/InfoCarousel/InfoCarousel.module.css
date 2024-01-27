@@ -1,0 +1,46 @@
+.carousel-info {
+    width: 40%;
+}
+
+.carousel-info:hover {
+    cursor: grab;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.prev {
+    position: absolute;
+    z-index: 100;
+    width: fit-content;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out
+}
+
+.prev:hover {
+    background-color: rgba(169, 169, 169, 0.2);
+}
+
+.next {
+    padding-left: 2%;
+    padding-right: 2%;
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out
+}
+
+.next:hover {
+    background-color: rgba(169, 169, 169, 0.2);
+}
