@@ -1,0 +1,36 @@
+.cls-1 {
+    font-size: 47.6px;
+    letter-spacing: .01em;
+    stroke-width: .25px;
+  }
+
+  .cls-1, .cls-2, .cls-3 {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+  }
+
+  .cls-1, .cls-4, .cls-5 {
+    font-family: Gontserrat-Bold, Gontserrat;
+    font-weight: 700;
+  }
+
+  .cls-4 {
+    font-size: 94px;
+    letter-spacing: .01em;
+    opacity: .26;
+  }
+
+  .cls-4, .cls-5 {
+    fill: #fff;
+  }
+
+  .cls-3 {
+    opacity: .35;
+    stroke-width: .75px;
+  }
+
+  .cls-5 {
+    font-size: 48px;
+    letter-spacing: .01em;
+  }

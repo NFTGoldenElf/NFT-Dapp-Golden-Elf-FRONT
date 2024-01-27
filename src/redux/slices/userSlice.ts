@@ -25,10 +25,10 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         loadUserInfo: (state, action: PayloadAction<UserState>) => {
-            return { ...state, ...action.payload }
+            return { ...state, ...action.payload, connected: true }
         },
         deleteUserInfo: (state) => {
-            return { ...state, ...initialState }
+            return { ...state, ...initialState, connected: false }
         },
         editUserInfo: (state, action: PayloadAction<UserEdit>) => {
             return { ...state, ...action.payload }

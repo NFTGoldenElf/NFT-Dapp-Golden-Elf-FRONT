@@ -4,7 +4,7 @@ import Landing from './pages/Landing/Landing'
 import Profile from './pages/Profile/Profile'
 import { web3, getWalletData } from './utils/utils'
 import { useDispatch } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { AppDispatch } from './redux/store'
 import detectEthereumProvider from '@metamask/detect-provider'
 import { resetWallet, setWallet } from './redux/slices/walletSlice'
@@ -13,19 +13,19 @@ import APICall from './backend/axiosInstance'
 import { deleteUserInfo, loadUserInfo } from './redux/slices/userSlice'
 import { USER_ROUTES } from './backend/routes'
 import { uuidV4 } from 'web3-utils'
-import Cloudinary from './pages/CloudinaryTest/CloudinaryTest'
+import MintNFT from './pages/MintNFT/MintNFT'
+import { hasProviderStatus } from './redux/slices/providerSlice'
+import Test from './pages/Test/Test'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const [hasProvider, setHasProvider] = useState<boolean | null>(null);
-
   useEffect(() => {
     const appConnectionStatus = async () => {
       const provider = await detectEthereumProvider({ silent: true })
       const hasProvider = Boolean(provider);
-      setHasProvider(hasProvider)
+      dispatch(hasProviderStatus(hasProvider))
       if (hasProvider) {
         web3.currentProvider!.on("accountsChanged", refreshAccounts);
         web3.currentProvider!.on("chainChanged", refreshChain);
@@ -48,6 +48,7 @@ function App() {
   const refreshAccounts = async (accounts: string[]) => {
     if (accounts.length <= 0) {
       dispatch(resetWallet());
+
       navigate('/')
       return;
     }
@@ -95,9 +96,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Landing hasProvider={hasProvider} />} />
+        <Route path='/' element={<Landing/>} />
         <Route path='/perfil' element={<Profile />} />
-        <Route path='/test' element={<Cloudinary />} />
+        <Route path='/crear' element={<MintNFT/>}/>
+        <Route path='/test' element={<Test/>}/>
       </Routes>
     </>
   )
