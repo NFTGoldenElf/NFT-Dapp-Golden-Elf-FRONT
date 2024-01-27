@@ -3,6 +3,7 @@ import styles from './ButtonLanding.module.css'
 import { FC } from 'react'
 
 const ButtonLanding: FC<tailwindStyle> = ({ style }) => {
+    
     return (
         <svg
             id="Capa_2"
@@ -10,6 +11,7 @@ const ButtonLanding: FC<tailwindStyle> = ({ style }) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 127.99 40.28"
             className={`${styles.svg} ${style}`}
+            
         >
             <g id="Layer_3" data-name="Layer 3">
                 <g>

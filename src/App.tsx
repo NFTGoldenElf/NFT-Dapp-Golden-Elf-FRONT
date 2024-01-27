@@ -48,6 +48,7 @@ function App() {
   const refreshAccounts = async (accounts: string[]) => {
     if (accounts.length <= 0) {
       dispatch(resetWallet());
+
       navigate('/')
       return;
     }

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useRef } from "react";
 import NavBar from "../../containers/navbar/NavBar/NavBar.nav";
 import GoldenElfLogo from "../../components/svg/GoldenElfLogo/GoldenElfLogo";
 import { FaDiscord } from "react-icons/fa";
@@ -22,40 +22,43 @@ import FooterImage from '/cards/Footer.png'
 import Star from "../../components/svg/Star/Star";
 
 const Landing: FC = () => {
-    const [currentSection, setCurrentSection] = useState(0);
-    console.log(currentSection)
+    const [currentSection, setCurrentSection] = useState<number>(0);
+
+    const downloadLinkRef = useRef<HTMLAnchorElement>(null);
+    const handleDownload = () => {
+        downloadLinkRef.current?.click();
+    }
 
     useEffect(() => {
         const sections = document.querySelectorAll('section');
 
-        // Función para determinar la sección actual
-        const getCurrentSection = () => {
-            const scrollPosition = window.scrollY + window.innerHeight / 2;
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+        };
 
-            for (const section of sections) {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-
-                if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-                    return section.id;
+        const handleIntersection = (entries: any) => {
+            entries.forEach((entry: any) => {
+                if (entry.isIntersecting) {
+                    const parts = entry.target.id.split("-")
+                    setCurrentSection(Number(parts[1]))
                 }
-            }
-
-            // Si ninguna sección está completamente visible, devuelve null
-            return null;
+            });
         };
 
-        // Manejador de eventos de scroll
-        const handleScroll = () => {
-            const currentSection = getCurrentSection();
-            console.log('Sección actual:', currentSection);
-        };
+        const observer = new IntersectionObserver(handleIntersection, options);
 
-        // Registra el evento de scroll
-        window.addEventListener('scroll', handleScroll, { capture: true });
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
 
         return () => {
-            window.removeEventListener('scroll', handleScroll, { capture: true });
+            sections.forEach((section) => {
+                observer.unobserve(section);
+            });
+            observer.disconnect();
         };
     }, []);
 
@@ -74,7 +77,14 @@ const Landing: FC = () => {
                     <Arrows currentSection={currentSection} />
                 </div>
 
-                <ButtonLanding style="w-60 cursor-pointer absolute bottom-40 right-64" />
+                <a className="w-60 cursor-pointer absolute bottom-40 right-64"
+                    onClick={handleDownload}
+                    ref={downloadLinkRef}
+                    href="/pdfs/WhitePaper.pdf"
+                    download="White-Paper-Golden-Elf.pdf"
+                >
+                    <ButtonLanding style='' />
+                </a>
 
                 <div className={styles.detail}>
                     <Detail />

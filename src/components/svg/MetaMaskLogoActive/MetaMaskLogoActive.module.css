@@ -1,0 +1,29 @@
+.cls-1,
+.cls-2 {
+    fill: #fff;
+}
+
+.cls-2,
+.cls-3 {
+    opacity: .39;
+}
+
+.cls-4 {
+    fill: #ff6600;
+}
+
+.cls-5 {
+    fill: #b34802;
+    stroke: #ff6600;
+    stroke-width: .1px;
+}
+
+.cls-5,
+.cls-3 {
+    stroke-miterlimit: 10;
+}
+
+.cls-3 {
+    fill: none;
+    stroke: #fff;
+}

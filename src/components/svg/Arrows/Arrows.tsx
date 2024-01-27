@@ -6,9 +6,11 @@ interface Props {
 }
 
 const Arrows: FC<Props> = ({ currentSection }) => {
+
     const scrollToSection = (sectionIndex: any) => {
+        
         const sections = document.querySelectorAll('section');
-        const targetSection = sections[sectionIndex];
+        const targetSection = sections[sectionIndex-1];
         if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         }
@@ -22,7 +24,7 @@ const Arrows: FC<Props> = ({ currentSection }) => {
 
     const scrollToNextSection = () => {
         const sections = document.querySelectorAll('section');
-        if (currentSection < sections.length - 1) {
+        if (currentSection <= sections.length - 1) {
             scrollToSection(currentSection + 1);
         }
     };

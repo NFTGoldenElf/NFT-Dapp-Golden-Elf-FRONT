@@ -5,6 +5,8 @@ import { resetWallet, setWallet } from "../../../redux/slices/walletSlice";
 import { useNavigate } from "react-router-dom";
 import { getWalletData, web3 } from "../../../utils/utils";
 import MetaMaskLogo from "../../svg/MetaMaskLogo/MetaMaskLogo";
+import MetaMaskLogoActive from "../../svg/MetaMaskLogoActive/MetaMaskLogoActive";
+
 
 const ConnectMetaMask: FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -43,15 +45,13 @@ const ConnectMetaMask: FC = () => {
             }
 
             {hasProvider && wallet.accounts.length <= 0 &&
-                <MetaMaskLogo style="w-20 cursor-pointer " onClickFunction={handleConnect}/>
+                <MetaMaskLogo style="w-20 cursor-pointer" onClickFunction={handleConnect} />
             }
 
             {hasProvider && wallet.accounts.length > 0 &&
-                <div className="space-x-5 items-center flex  justify-end">
+                <div className={`space-x-5 items-center flex  justify-end`}>
                     <label>{wallet.balance}</label>
-                    <button
-                        className="bg-red-900 p-2 rounded hover:shadow-2xl"
-                        onClick={() => navigate('/perfil')}>Ir al perfil</button>
+                    <MetaMaskLogoActive style="w-20 cursor-pointer" onClick={() => navigate('/perfil')} />
                 </div>
             }
         </>

@@ -9,29 +9,40 @@
 }
 
 .ul-items {
+    position: absolute;
     display: flex;
-    width: 3/5;
+    width: 60%;
     height: 100%;
     align-items: center;
-    gap: 96px;
-    padding-left: 115px;
+    gap: 8%;
+    padding-left: 5%;
+}
+
+.other-container {
+    position: absolute;
+    left: 55%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .div-metamask {
-    display: flex;
-    width: fit-content;
-    position: relative;
-    left: 200px;
-    align-items: center;
-    height: 100%;
+    position: absolute;
+    left: 15%;   
 }
 
 .div-golden-elf-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
     position: absolute;
-    right: 0;
-    padding-right: 60px;
+    right: 6%;
+}
+
+.div-idiom-selector {
+    width: 10%;
+    position: absolute;
+    left: 45%
+}
+
+.div-idiom-selector:hover {
+    cursor: pointer;
 }
