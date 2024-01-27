@@ -46,3 +46,47 @@
 .div-idiom-selector:hover {
     cursor: pointer;
 }
+.togglebtn{
+    width: 35px;
+    position: absolute;
+    left: 80px;
+    top: 40px;
+    display: none;
+}
+.togglebtn span{
+    display: inline-block;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    float: left ;
+    margin-bottom: 8px;
+}
+
+@media (max-width:800px){
+
+    .togglebtn{
+        display: block ;
+    }
+    .ul-items{
+        display: none;
+        width: 100%;
+        border-top: 1px solid rgb(243, 243, 243);
+        padding:20px;
+        margin-top: 30px;
+    }
+    .nav ul li{
+        padding: 15px 0px;
+        width: 100%;
+        
+    }
+    .ul-items.show{
+        display: block;
+    }
+}
+@media (max-width:1000px){
+    .div-metamask{
+        width: 30%;
+        text: 20px;
+    }
+
+}

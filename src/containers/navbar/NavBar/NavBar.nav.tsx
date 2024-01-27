@@ -6,9 +6,20 @@ import IdiomSelector from "../../../components/svg/IdiomSelector/IdiomSelector";
 import styles from './NavBar.module.css'
 
 const NavBar: FC = () => {
+   function myFunction() {
+    var items = document.getElementById("items");
+    items?.classList.toggle("show")
+   }
+
     return (
         <nav className={styles.nav}>
-            <ul className={styles["ul-items"]}>
+            <div className={styles.togglebtn} onClick={myFunction}>
+                <span></span>
+                <span></span>
+                <span></span>
+                
+            </div>
+            <ul className={`${styles["ul-items"]} show`} id="items">
                 <NavItem label='INICIO' scrollId="section-1" />
                 <NavItem label='Acerca de' scrollId="section-2" />
                 <NavItem label='Golden Elf' scrollId="section-3" />
