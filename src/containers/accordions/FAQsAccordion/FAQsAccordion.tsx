@@ -9,7 +9,7 @@ import { styled } from '@mui/material/styles';
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
+))(() => ({
     '&:not(:last-child)': {
         borderBottom: 0,
     },
@@ -50,7 +50,7 @@ const FAQsAccordion: FC = () => {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange =
-        (panel: string) => (event: SyntheticEvent, newExpanded: boolean) => {
+        (panel: string) => (_event: SyntheticEvent, newExpanded: boolean) => {
             setExpanded(newExpanded ? panel : false);
         };
 
