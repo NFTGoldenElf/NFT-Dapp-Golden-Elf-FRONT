@@ -1,0 +1,249 @@
+.header {
+    position: fixed;
+    top: 0;
+    backdrop-filter: grayscale(100%);
+    z-index: 10;
+    height: 10%;
+    width: 100%;
+}
+
+.arrows {
+    width: 60px;
+    position: fixed;
+    top: 38%;
+    left: 3%;
+    z-index: 100;
+}
+
+.first-section {
+    background: url(/backgrounds/main-background.jpg) center/cover no-repeat;
+    height: 106%;
+    position: relative;
+    border-bottom: 2px solid white;
+}
+
+.second-section {
+    height: 111%;
+    background-image: url(/backgrounds/carousel-background.png);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    border-bottom: 2px solid white;
+}
+
+.detail {
+    width: 100px;
+    position: relative;
+    top: 76%;
+    left: 22%;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 50%;
+    left: 10%;
+    justify-content: center;
+    gap: 30px;
+    overflow-y: hidden;
+    border-left: 2px solid #ffff;
+    border-right: 2px solid #ffff;
+}
+
+.elf-carousel-first-column {
+    height: 100%;
+    position: relative;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.elf-carousel-second-column {
+    height: 100%;
+    position: relative;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.text-second-section {
+    width: 25%;
+    position: relative;
+    left: 14%;
+    top: 5%;
+    height: fit-content
+}
+
+.p-second-section {
+    color: #fff;
+    font-family: MonM;
+    font-size: x-large;
+    height: 95%;
+}
+
+.third-section {
+    width: 100%;
+    height: 101%;
+    background-image: url(/backgrounds/other-sections-background.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid #fff;
+}
+
+.title-third-section {
+    width: 40%;
+    position: relative;
+    top: 6%;
+    height: fit-content;
+}
+
+.carousel-third-section {
+    position: relative;
+    top: 13%;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.white-line-third-section {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+    right: 10%;
+}
+
+.fourth-section {
+    height: 101%;
+    width: 100%;
+    background-image: url(/backgrounds/other-sections-background.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid #fff;
+}
+
+.white-line-fourth-section {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 10%;
+}
+
+.guide-benefits {
+    width: 70%;
+    position: relative;
+    top: 6%;
+}
+
+.benefit-title {
+    width: 40%;
+    position: absolute;
+    top: 4%;
+}
+
+.fifth-section {
+    height: 106%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-image: url(/backgrounds/other-sections-background.png);
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    border-bottom: 2px solid #fff;
+}
+
+.faqs {
+    width: 60%;
+    height: 80%;
+    overflow-y: hidden;
+    left: 20%;
+    position: relative;
+}
+
+.faqs-accordion {
+    font-family: MonM;
+    position: relative;
+    width: 34%;
+    right: 40%;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sixth-section {
+    width: 100%;
+    height: 80%;
+    background-image: url(/backgrounds/other-sections-background.png);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+}
+
+.footer-image {
+    position: absolute;
+    top: 20%;
+    left: 60%;
+    width: 30%;
+    border-radius: 14px;
+    transition: box-shadow 0.3s ease;
+}
+
+.footer-image:hover {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+}
+
+.star-footer {
+    width: 24%;
+    height: fit-content;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+.footer-text {
+    position: absolute;
+    bottom: 3%;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    font-family: Pala;
+    font-size: x-large;
+}
+
+.gold-text {
+    color: #ffd700;
+}
+
+.icons-footer {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 9%;
+    width: 100%;
+    justify-content: center;
+}
+
+@media (min-width: 1400px) {
+    .first-section {
+        height: 106%;
+    }
+}

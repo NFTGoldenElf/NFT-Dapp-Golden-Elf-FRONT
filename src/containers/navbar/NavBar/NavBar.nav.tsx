@@ -2,22 +2,22 @@ import { FC } from "react";
 import ConnectMetaMask from "../../../components/nav-components/MetaMask/MetaMask.component.nav";
 import NavItem from "../../../components/nav-components/Item/Item.component.nav";
 import GoldenElfHeader from "../../../components/svg/GoldenElfHeader/GoldenElfHeader";
+import styles from './NavBar.module.css'
 
 const NavBar: FC = () => {
     return (
-        <nav className="relative font-MonM text-xl w-100 h-full flex text-white">
-            <ul className="flex w-3/5 h-full items-center gap-20 space-x-5 pl-20">
-                <NavItem label='INICIO' />
-                <NavItem label='Acerca de' />
-                <NavItem label='Golden Elf' />
-                <NavItem label='NFTs' />
-                <NavItem label='Beneficios' />
-                <NavItem label='FAQs' />
+        <nav className={styles.nav}>
+            <ul className={styles["ul-items"]}>
+                <NavItem label='INICIO' scrollId="section-1"/>
+                <NavItem label='Acerca de' scrollId="section-2"/>
+                <NavItem label='Golden Elf' scrollId="section-3"/>
+                <NavItem label='Beneficios' scrollId="section-4"/>
+                <NavItem label='FAQs' scrollId="section-5"/>
             </ul>
-            <div className="relative left-8 flex items-center">
+            <div className={styles["div-metamask"]}>
                 <ConnectMetaMask />
             </div>
-            <div className="absolute right-0 pr-12 flex items-center h-full">
+            <div className={styles["div-golden-elf-header"]}>
                 <GoldenElfHeader style="w-52"/>
             </div>
 

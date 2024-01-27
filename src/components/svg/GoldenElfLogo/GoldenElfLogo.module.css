@@ -69,12 +69,30 @@
     fill: none;
 }
 
+.cls-4-special {
+    backdrop-filter: grayscale(100%);
+    opacity: 1;
+}
+
 .cls-13,
 .cls-14,
 .cls-15,
 .cls-18,
 .cls-19 {
     stroke-miterlimit: 10;
+}
+
+.cls-99 {
+    stroke-miterlimit: 10;
+    mix-blend-mode: darken;
+    stroke: #000;
+    stroke-width: 10;
+    backdrop-filter: grayscale(100%);
+    opacity: 1;
+}
+
+.backdrop {
+    backdrop-filter: grayscale(100%);
 }
 
 .cls-13,

@@ -13,7 +13,7 @@ const GoldenElfLogo: FC<tailwindStyle> = ({ style }) => {
                 <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
                     <feOffset dx="2" dy="2" />
                     <feGaussianBlur result="blur" stdDeviation="1" />
-                    <feFlood flood-color="#000" flood-opacity=".75" />
+                    <feFlood floodColor="#000" floodOpacity=".75" />
                     <feComposite in2="blur" operator="in" />
                     <feComposite in="SourceGraphic" />
                 </filter>

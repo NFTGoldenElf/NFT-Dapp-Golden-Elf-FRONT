@@ -1,0 +1,72 @@
+.cls-1 {
+    filter: url(#outer-glow-1);
+}
+
+.cls-1,
+.cls-2,
+.cls-3 {
+    fill: #fff;
+}
+
+.cls-4 {
+    letter-spacing: -.05em;
+}
+
+.cls-5 {
+    letter-spacing: .01em;
+}
+
+.cls-6 {
+    letter-spacing: 0em;
+}
+
+.cls-2 {
+    font-family: GonB, Gon;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.cls-7 {
+    letter-spacing: 0em;
+}
+
+.cls-8 {
+    letter-spacing: -.02em;
+}
+
+.cls-9 {
+    letter-spacing: -.06em;
+}
+
+.cls-10 {
+    fill: none;
+    filter: url(#outer-glow-3);
+    opacity: .37;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
+}
+
+.cls-11 {
+    letter-spacing: 0em;
+}
+
+.cls-3 {
+    filter: url(#outer-glow-2);
+}
+
+.cls-12 {
+    letter-spacing: -.02em;
+}
+
+.cls-13 {
+    letter-spacing: .01em;
+}
+
+.cls-14 {
+    letter-spacing: .01em;
+}
+
+.cls-15 {
+    letter-spacing: 0em;
+}

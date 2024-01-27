@@ -1,9 +1,20 @@
 import { FC } from "react"
 import styles from './Item.module.css'
 
-const NavItem: FC<{ label: string }> = ({ label }) => {
+interface Props {
+    label: string;
+    scrollId: string;
+}
+
+const NavItem: FC<Props> = ({ label, scrollId }) => {
+    const scrollToSection = () => {
+        const section = document.getElementById(scrollId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
     return (
-        <li className={`cursor-pointer relative ${styles.underline}`}>
+        <li className={`cursor-pointer relative ${styles.underline}`} onClick={scrollToSection}>
             {label}
         </li>
     )
