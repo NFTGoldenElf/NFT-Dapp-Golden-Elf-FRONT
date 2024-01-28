@@ -4,7 +4,7 @@ import Landing from './pages/Landing/Landing'
 import Profile from './pages/Profile/Profile'
 import { web3, getWalletData } from './utils/utils'
 import { useDispatch } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { AppDispatch } from './redux/store'
 import detectEthereumProvider from '@metamask/detect-provider'
 import { resetWallet, setWallet } from './redux/slices/walletSlice'
@@ -15,13 +15,10 @@ import { USER_ROUTES } from './backend/routes'
 import { uuidV4 } from 'web3-utils'
 import { hasProviderStatus } from './redux/slices/providerSlice'
 import OtherProfile from './pages/OtherProfile/OtherProfile'
-import { CircularProgress } from '@mui/material'
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-
-  const [pageLoaded, setPageLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     const appConnectionStatus = async () => {
@@ -42,16 +39,9 @@ function App() {
     }
     appConnectionStatus();
 
-    const handleLoad = () => {
-      setPageLoaded(true);
-    }
-
-    window.addEventListener('load', handleLoad);
-
     return () => {
       window.ethereum?.removeListener("accountsChanged", refreshAccounts);
       window.ethereum?.removeListener("chainChanged", refreshChain);
-      window.removeEventListener('load', handleLoad);
     }
   }, [])
 
@@ -105,17 +95,11 @@ function App() {
 
   return (
     <>
-      {!pageLoaded ?
-        <div className="loading-page">
-          <CircularProgress />
-        </div>
-        :
-        <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/perfil' element={<Profile />} />
-          <Route path='/usuario/:address' element={<OtherProfile />} />
-        </Routes>
-      }
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        <Route path='/perfil' element={<Profile />} />
+        <Route path='/usuario/:address' element={<OtherProfile />} />
+      </Routes>
     </>
   )
 }
