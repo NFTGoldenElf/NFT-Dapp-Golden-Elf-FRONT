@@ -14,6 +14,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import walletReducer from './slices/walletSlice';
 import userReducer from './slices/userSlice';
 import providerReducer from './slices/providerSlice'
+import otherUsersReducer from './slices/otherUsersSlice'
 
 const persistConfig = {
     key: 'root',
@@ -23,7 +24,8 @@ const persistConfig = {
 const rootReducer = combineReducers({
     wallet: walletReducer,
     user: userReducer,
-    provider: providerReducer
+    provider: providerReducer,
+    otherUsers: otherUsersReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -43,7 +45,8 @@ export const store = configureStore({
                     'wallet/setWallet',
                     'user/loadUserInfo',
                     'user/editUserInfo',
-                    'provider/hasProviderStatus'
+                    'provider/hasProviderStatus',
+                    'otherUsers/loadUsers'
                 ]
             }
         })

@@ -15,3 +15,29 @@
     top: 40%;
     left: 10%;
 }
+
+.users-cardContainer {
+    width: 20%;
+}
+
+.users-section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+    justify-content: center;
+}
+
+.title-nft-section {
+    font-family: GonB;
+    width: 20%
+}
+
+.nft-sale {
+    font-family: GonB;
+    width: 10%;
+}
+
+.nft-sale img {
+    border-radius: 14px;
+}

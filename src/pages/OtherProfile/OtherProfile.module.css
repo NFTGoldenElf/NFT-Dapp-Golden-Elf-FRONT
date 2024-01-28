@@ -1,0 +1,50 @@
+.user-section {
+    width: 100%;
+    height: 100%;
+    background-color: gainsboro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.user-image {
+    width: 40%
+}
+
+.user-name {
+    font-family: GonB;
+}
+
+.user-label {
+    font-family: MonR;
+}
+
+.nft-card {
+    width: 10%;
+}
+
+.nft-section {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    font-family: GonB;
+}
+
+.nft-sale-section {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    font-family: GonB;
+}
+
+.nft-sale {
+    width: 10%;
+}
+
+.nft-sale button {
+    background-color: green;
+    padding: 2%;
+    border-radius: 8px;
+}
