@@ -14,6 +14,7 @@ import { deleteUserInfo, loadUserInfo } from './redux/slices/userSlice'
 import { USER_ROUTES } from './backend/routes'
 import { uuidV4 } from 'web3-utils'
 import { hasProviderStatus } from './redux/slices/providerSlice'
+import OtherProfile from './pages/OtherProfile/OtherProfile'
 
 
 function App() {
@@ -97,6 +98,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/perfil' element={<Profile />} />
+        <Route path='/usuario/:address' element={<OtherProfile/>}/>
       </Routes>
     </>
   )

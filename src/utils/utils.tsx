@@ -35,7 +35,7 @@ export class Wallet implements WalletState {
     }
 }
 
-const NFTContract = new web3.eth.Contract(abiContract.abi, "0x05895F1fDf5Ed19EA89da8f2b5dACa8fdAC238ca");
+const NFTContract = new web3.eth.Contract(abiContract.abi, "0x653c21B1eC8EACbc8fcE0F1daDdc4788a1fC197F");
 export const { mint, URITokensAndIds, getNFTsForSale, listNFTForSale, buyNFT, getNFTPrice, wallet } = NFTContract.methods;
 
 
@@ -60,9 +60,45 @@ export const formatURITokensAndIds = async (nfts: any[] | void): Promise<formatt
             ...response.data
         }
 
-        returnedNFTs.push(dataArray)
+        if (dataArray.tokenId !== 0) {
+            returnedNFTs.push(dataArray)
+        }
     }
-  
+
     return returnedNFTs;
+}
+
+export interface formattedNFTsSale {
+    name: string;
+    description: string;
+    image: string;
+    external_url: string;
+    tokenId: number;
+    price: number;
+}
+
+export const formatURITokensAndIdsAndPrice = async (nfts: any[] | void): Promise<formattedNFTsSale[]> => {
+    let returnedNFTs: formattedNFTsSale[] = [];
+    if (!nfts) {
+        throw Error("No hay nfts para formatear")
+    }
+    for (let i = 0; i < nfts.length; i++) {
+        const response = await axios.get(nfts[i]["1"]);
+        const price: bigint = await getNFTPrice(Number(nfts[i]["0"])).call();
+        const dataArray = {
+            tokenId: Number(nfts[i]["0"]),
+            ...response.data,
+            price: Number(web3.utils.fromWei(price, 'ether'))
+        }
+
+        if (dataArray.tokenId !== 0) {
+            returnedNFTs.push(dataArray)
+        }
+    }
+    return returnedNFTs;
+}
+
+export const formatAmountInWei = (amountInEther: number): number => {
+    return Number(web3.utils.toWei(amountInEther.toString(), 'ether'))
 }
 

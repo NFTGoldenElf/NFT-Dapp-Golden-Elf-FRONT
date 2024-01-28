@@ -238,7 +238,7 @@
                 },
                 {
                     "internalType": "uint256",
-                    "name": "priceInEthers",
+                    "name": "priceInWei",
                     "type": "uint256"
                 }
             ],
@@ -322,7 +322,7 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
-                    "name": "priceInEthers",
+                    "name": "price",
                     "type": "uint256"
                 }
             ],
@@ -602,7 +602,7 @@
             "outputs": [
                 {
                     "internalType": "uint256",
-                    "name": "priceInEthers",
+                    "name": "price",
                     "type": "uint256"
                 },
                 {
