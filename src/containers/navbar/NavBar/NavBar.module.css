@@ -63,40 +63,66 @@
     display: none;
 }
 .togglebtn span{
-    display: inline-block;
+    display: flex;
     width: 100%;
     height: 2px;
     background-color: rgb(255, 255, 255);
     float: left ;
     margin-bottom: 8px;
 }
+@media (max-width:1614px){
+    .nav{
+        font-size: 18px;
+    }
+}
 
 @media (max-width:1445px){
     .nav{
-        font-size: 18px;
+        font-size: 15px;
     }
     .div-idiom-selector{
         left: 50%;
     }
+    .div-golden-elf-header{
+        margin-right: -20px;
+    }
 }
 @media (max-width:1230px){
     .nav{
-        font-size: 15px;
+        font-size: 14px;
+    }
+}
+@media (max-width:1131px){
+    .nav{
+        font-size: 12px;
     }
 }
 @media (max-width:1000px){
     .nav{
-        font-size: 13px;
+        font-size: 12px;
     }
 }
-@media(max-width:905px){
+@media (max-width:969px){
+    .nav{
+        font-size: 11px;
+    }
+}
+
+@media(max-width:903px){
     .nav{
         font-size: 11px;
     }
     .div-metamask{
         left: 20%;
     }
+    .div-idiom-selector{
+        left: 55%;
+    }
+    .div-golden-elf-header{
+        margin-right: -10px;
+    }
 }
+
 
 @media (max-width:800px){
 
@@ -130,16 +156,50 @@
         left: 74%;
     }
     .other-container{
+        left:20%;
+        width: 70%;
         
     }
 
 }
 @media (max-width:600px){
     .togglebtn span{
-        height: 1px;
-        width: 30px;   
+        width: 100%; 
+        
+    }
+    .togglebtn{
+        left: 40px;
+    }
+    .show{
+        margin-left: 15px;
+    }
+    .div-metamask{
+        left: 15%;
+    }
+    .div-idiom-selector{
+        left:54%
+    }
+    .div-idiom-selector{
+        width: 12%;
     }
 
+
 }
+@media (max-width: 415px){
+    .div-golden-elf-header{
+        margin-left: -15px;
+    }
+    .togglebtn span{
+        width: 26px;
+    }
+    .div-metamask{
+        margin-left: -10px;
+    }
+    .div-idiom-selector{
+        margin-left: -10px;
+        width: 13%;
+    }
+}
+
 
 
