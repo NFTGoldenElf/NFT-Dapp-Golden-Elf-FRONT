@@ -43,7 +43,7 @@ const NavBar: FC = () => {
                      <IdiomSelector />
                  </div>
                  <div className={styles["div-golden-elf-header"]}>
-                     <GoldenElfHeader style="w-52" />
+                     <GoldenElfHeader style="xl:w-52 lg:w-40 md:w-28 sm:w-36 phone:w-28" />
                  </div>
              </div>
          </nav>

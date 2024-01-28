@@ -72,9 +72,6 @@
 }
 
 @media (max-width:1445px){
-    .div-metamask{
-        width: 30%;
-    }
     .nav{
         font-size: 18px;
     }
@@ -116,13 +113,13 @@
     }
     .nav ul li{
         padding: 15px 10px;
-        width: 100%;
+        width: 50%;
         background-color: rgba(0, 0, 0, 0.377);
 
     }
     .show{
-        margin-top: 80px;
-        margin-left: 60px;
+        margin-top: 50px;
+        margin-left: 35px;
         display: block;
         
     }
@@ -131,6 +128,16 @@
     }
     .div-golden-elf-header{
         left: 74%;
+    }
+    .other-container{
+        
+    }
+
+}
+@media (max-width:600px){
+    .togglebtn span{
+        height: 1px;
+        width: 30px;   
     }
 
 }

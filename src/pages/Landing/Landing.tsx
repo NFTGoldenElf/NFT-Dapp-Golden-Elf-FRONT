@@ -77,7 +77,7 @@ const Landing: FC = () => {
                     <Arrows currentSection={currentSection} />
                 </div>
 
-                <a className="w-60 cursor-pointer absolute bottom-40 right-64"
+                <a className="xl:w-60  cursor-pointer absolute bottom-40 right-64 lg:w-48 sm:w-40 md:w-40 phone:w-40"
                     onClick={handleDownload}
                     ref={downloadLinkRef}
                     href="/pdfs/WhitePaper.pdf"
