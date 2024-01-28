@@ -91,12 +91,17 @@ const Landing: FC = () => {
                 </div>
 
                 <div className="flex absolute bottom-4 md:right-28 gap-6">
-                    <article className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
+                    <article
+                        className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300"
+                        onClick={() => window.open("https://discord.gg/XVjXunY6ZN", "_blank")}
+                    >
                         <IconContext.Provider value={{ color: "#ffffff", size: "40px" }}>
                             <FaDiscord />
                         </IconContext.Provider>
                     </article>
-                    <article className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
+                    <article
+                        className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300"
+                    >
                         <FacebookIcon
                             sx={{
                                 fontSize: 40,
@@ -104,7 +109,10 @@ const Landing: FC = () => {
                             }}
                         />
                     </article>
-                    <article className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
+                    <article
+                        onClick={() => window.open("https://www.instagram.com/eth_goldenelf/", "_blank")}
+                        className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300"
+                    >
                         <InstagramIcon
                             sx={{
                                 fontSize: 40,
@@ -112,7 +120,10 @@ const Landing: FC = () => {
                             }}
                         />
                     </article>
-                    <article className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
+                    <article
+                        onClick={() => window.open("https://twitter.com/eth_GoldenELF", "_blank")}
+                        className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300"
+                    >
                         <XIcon
                             sx={{
                                 fontSize: 40,
@@ -202,7 +213,9 @@ const Landing: FC = () => {
                     </label>
                 </div>
                 <div className={styles["icons-footer"]}>
-                    <article className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
+                    <article
+                        onClick={() => window.open("https://discord.gg/XVjXunY6ZN", "_blank")}
+                        className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
                         <IconContext.Provider value={{ color: "#ffffff", size: "40px" }}>
                             <FaDiscord />
                         </IconContext.Provider>
@@ -215,7 +228,9 @@ const Landing: FC = () => {
                             }}
                         />
                     </article>
-                    <article className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
+                    <article
+                        onClick={() => window.open("https://www.instagram.com/eth_goldenelf/", "_blank")}
+                        className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
                         <InstagramIcon
                             sx={{
                                 fontSize: 40,
@@ -223,7 +238,9 @@ const Landing: FC = () => {
                             }}
                         />
                     </article>
-                    <article className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
+                    <article
+                        onClick={() => window.open("https://twitter.com/eth_GoldenELF", "_blank")}
+                        className="p-1.5 w-fit hover:bg-gray-500 cursor-pointer rounded transition ease-in-out duration-300">
                         <XIcon
                             sx={{
                                 fontSize: 40,
