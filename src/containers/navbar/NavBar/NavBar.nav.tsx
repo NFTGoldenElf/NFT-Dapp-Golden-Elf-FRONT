@@ -1,14 +1,22 @@
-import { FC } from "react";
+import { FC, useLayoutEffect, useState } from "react";
 import ConnectMetaMask from "../../../components/nav-components/MetaMask/MetaMask.component.nav";
 import NavItem from "../../../components/nav-components/Item/Item.component.nav";
 import GoldenElfHeader from "../../../components/svg/GoldenElfHeader/GoldenElfHeader";
 import IdiomSelector from "../../../components/svg/IdiomSelector/IdiomSelector";
 import styles from './NavBar.module.css'
 
-const NavBar: FC = () => {
-    function myFunction() {
-     var items = document.getElementById("items");
-     items?.classList.toggle("show")
+const NavBar: FC = () => {   
+    const [isShowing, setIsShowing] = useState(false)
+
+    const myFunction = () => {
+        setIsShowing(!isShowing)
+        if (isShowing === true) {
+            let items = document.getElementById("items");
+            items?.classList.replace(styles["ul-items"], styles["show"])
+        } else {
+            let items = document.getElementById("items");
+            items?.classList.replace(styles["show"], styles["ul-items"])
+        }
     }
  
      return (
@@ -19,7 +27,7 @@ const NavBar: FC = () => {
                  <span></span>
  
              </div>
-             <ul className={`${styles["ul-items"]} show`} id="items">
+             <ul className={styles["ul-items"]} id="items">
                  <NavItem label='INICIO' scrollId="section-1" />
                  <NavItem label='Acerca de' scrollId="section-2" />
                  <NavItem label='Golden Elf' scrollId="section-3" />
@@ -42,4 +50,4 @@ const NavBar: FC = () => {
      )
  }
  
- export default NavBar
+ export default NavBar

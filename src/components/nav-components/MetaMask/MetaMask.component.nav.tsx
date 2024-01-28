@@ -50,7 +50,7 @@ const ConnectMetaMask: FC = () => {
 
             {hasProvider && wallet.accounts.length > 0 &&
                 <div className={`space-x-5 items-center flex  justify-end`}>
-                    <label>{wallet.balance}</label>
+                    <label className="lg:text-lg">{wallet.balance}</label>
                     <MetaMaskLogoActive style="w-20 cursor-pointer" onClick={() => navigate('/perfil')} />
                 </div>
             }
