@@ -1,4 +1,4 @@
-import { FC, useLayoutEffect, useState } from "react";
+import { FC, useState } from "react";
 import ConnectMetaMask from "../../../components/nav-components/MetaMask/MetaMask.component.nav";
 import NavItem from "../../../components/nav-components/Item/Item.component.nav";
 import GoldenElfHeader from "../../../components/svg/GoldenElfHeader/GoldenElfHeader";
