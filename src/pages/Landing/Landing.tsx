@@ -20,6 +20,7 @@ import FAQs from "../../components/svg/FAQs/FAQs";
 import FAQsAccordion from "../../containers/accordions/FAQsAccordion/FAQsAccordion";
 import FooterImage from "/cards/Footer.png";
 import Star from "../../components/svg/Star/Star";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Landing: FC = () => {
   const [currentSection, setCurrentSection] = useState<number>(0);
