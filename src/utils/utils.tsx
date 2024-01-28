@@ -1,5 +1,7 @@
 import { WalletState } from "../redux/slices/walletSlice"
 import Web3 from "web3"
+import abiContract from '../abis/abiContract.json';
+import axios from "axios";
 
 export const web3 = new Web3(window.ethereum || "");
 
@@ -31,5 +33,36 @@ export class Wallet implements WalletState {
         this.balance = balance;
         this.chainId = chainId;
     }
+}
+
+const NFTContract = new web3.eth.Contract(abiContract.abi, "0x05895F1fDf5Ed19EA89da8f2b5dACa8fdAC238ca");
+export const { mint, URITokensAndIds, getNFTsForSale, listNFTForSale, buyNFT, getNFTPrice, wallet } = NFTContract.methods;
+
+
+export interface formattedNFTs {
+    name: string;
+    description: string;
+    image: string;
+    external_url: string;
+    tokenId: number;
+}
+
+export const formatURITokensAndIds = async (nfts: any[] | void): Promise<formattedNFTs[]> => {
+    let returnedNFTs: formattedNFTs[] = [];
+    if (!nfts) {
+        throw Error("No hay nfts para formatear")
+    }
+    for (let i = 0; i < nfts.length; i++) {
+        const response = await axios.get(nfts[i]["1"]);
+
+        const dataArray = {
+            tokenId: Number(nfts[i]["0"]),
+            ...response.data
+        }
+
+        returnedNFTs.push(dataArray)
+    }
+  
+    return returnedNFTs;
 }
 

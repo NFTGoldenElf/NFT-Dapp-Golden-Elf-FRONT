@@ -1,0 +1,17 @@
+.nft-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.button-mint-nft {
+    background-color: cornflowerblue;
+    height: fit-content;
+    padding: 0.5%;
+    border-radius: 14px;
+    font-family: GonR;
+    position: relative;
+    top: 40%;
+    left: 10%;
+}
