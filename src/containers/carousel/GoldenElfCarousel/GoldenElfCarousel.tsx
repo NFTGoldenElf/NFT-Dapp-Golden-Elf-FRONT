@@ -54,6 +54,16 @@ const GoldenElfCarousel: FC<Props> = ({ slice, rtl }) => {
         pauseOnHover: false,
         rtl: rtl,
         className: styles["carousel-elf"],
+        responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                className: styles["carousel-elf-500"],
+                slidesToShow: 4,
+              }
+            },
+
+          ]
     }
     return (
         <Slider {...settings}>

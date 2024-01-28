@@ -24,6 +24,9 @@ export default {
       colors: {
         'gold': '#635621',
       },
+      screens:{
+        'phone':'1px',
+      }
     },
   },
   plugins: [],
