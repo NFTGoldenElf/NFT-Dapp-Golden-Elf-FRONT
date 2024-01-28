@@ -13,9 +13,9 @@ import APICall from './backend/axiosInstance'
 import { deleteUserInfo, loadUserInfo } from './redux/slices/userSlice'
 import { USER_ROUTES } from './backend/routes'
 import { uuidV4 } from 'web3-utils'
-import MintNFT from './pages/MintNFT/MintNFT'
 import { hasProviderStatus } from './redux/slices/providerSlice'
-import Test from './pages/Test/Test'
+import OtherProfile from './pages/OtherProfile/OtherProfile'
+
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -96,10 +96,9 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<Landing/>} />
+        <Route path='/' element={<Landing />} />
         <Route path='/perfil' element={<Profile />} />
-        <Route path='/crear' element={<MintNFT/>}/>
-        <Route path='/test' element={<Test/>}/>
+        <Route path='/usuario/:address' element={<OtherProfile/>}/>
       </Routes>
     </>
   )

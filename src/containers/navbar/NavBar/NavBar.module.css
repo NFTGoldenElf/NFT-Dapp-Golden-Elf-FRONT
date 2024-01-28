@@ -17,6 +17,15 @@
     gap: 8%;
     padding-left: 5%;
 }
+.show {
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 100%;
+    align-items: center;
+    gap: 8%;
+    padding-left: 5%;
+}
 
 .other-container {
     position: absolute;
@@ -46,3 +55,151 @@
 .div-idiom-selector:hover {
     cursor: pointer;
 }
+.togglebtn{
+    width: 35px;
+    position: absolute;
+    left: 80px;
+    top: 40px;
+    display: none;
+}
+.togglebtn span{
+    display: flex;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    float: left ;
+    margin-bottom: 8px;
+}
+@media (max-width:1614px){
+    .nav{
+        font-size: 18px;
+    }
+}
+
+@media (max-width:1445px){
+    .nav{
+        font-size: 15px;
+    }
+    .div-idiom-selector{
+        left: 50%;
+    }
+    .div-golden-elf-header{
+        margin-right: -20px;
+    }
+}
+@media (max-width:1230px){
+    .nav{
+        font-size: 14px;
+    }
+}
+@media (max-width:1131px){
+    .nav{
+        font-size: 12px;
+    }
+}
+@media (max-width:1000px){
+    .nav{
+        font-size: 12px;
+    }
+}
+@media (max-width:969px){
+    .nav{
+        font-size: 11px;
+    }
+}
+
+@media(max-width:903px){
+    .nav{
+        font-size: 11px;
+    }
+    .div-metamask{
+        left: 20%;
+    }
+    .div-idiom-selector{
+        left: 55%;
+    }
+    .div-golden-elf-header{
+        margin-right: -10px;
+    }
+}
+
+
+@media (max-width:800px){
+
+    .togglebtn{
+        display: block ;
+        margin-top: -20px;
+    }
+    .ul-items{
+        display: none;
+        width: 100%;
+        border-top: 1px solid rgb(243, 243, 243);
+        padding:20px;
+        margin-top: 30px;
+    }
+    .nav ul li{
+        padding: 15px 10px;
+        width: 50%;
+        background-color: rgba(0, 0, 0, 0.377);
+
+    }
+    .show{
+        margin-top: 50px;
+        margin-left: 35px;
+        display: block;
+        
+    }
+    .other-container{
+        left: 35%;
+    }
+    .div-golden-elf-header{
+        left: 74%;
+    }
+    .other-container{
+        left:20%;
+        width: 70%;
+        
+    }
+
+}
+@media (max-width:600px){
+    .togglebtn span{
+        width: 100%; 
+        
+    }
+    .togglebtn{
+        left: 40px;
+    }
+    .show{
+        margin-left: 15px;
+    }
+    .div-metamask{
+        left: 15%;
+    }
+    .div-idiom-selector{
+        left:54%
+    }
+    .div-idiom-selector{
+        width: 12%;
+    }
+
+
+}
+@media (max-width: 415px){
+    .div-golden-elf-header{
+        margin-left: -15px;
+    }
+    .togglebtn span{
+        width: 26px;
+    }
+    .div-metamask{
+        margin-left: -10px;
+    }
+    .div-idiom-selector{
+        margin-left: -10px;
+        width: 13%;
+    }
+}
+
+
+

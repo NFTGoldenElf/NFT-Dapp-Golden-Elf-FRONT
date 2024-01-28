@@ -8,14 +8,17 @@ import FormError from "../../../components/forms-components/Error/Error.componen
 import FormSubmitButton from "../../../components/forms-components/SubmitButton/SubmitButton.component.form"
 import APICall from "../../../backend/axiosInstance"
 import { NFT_ROUTES } from "../../../backend/routes"
+import { mint } from "../../../utils/utils"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../redux/store"
 
 interface MintNFTFormProps {
     onSave: () => void
 }
 
 const MintNFTForm: FC<MintNFTFormProps> = ({ onSave }) => {
+    const { accounts } = useSelector((state: RootState) => state.wallet)
     const [isLoading, setIsLoading] = useState<boolean>(false);
-
     const handleFormSubmit = async (values: any) => {
         try {
             setIsLoading(true);
@@ -26,7 +29,8 @@ const MintNFTForm: FC<MintNFTFormProps> = ({ onSave }) => {
                     },
                 }
             );
-            console.log(response.data);
+            const uri = response.data;
+            await mint(uri).send({ from: accounts[0] });
             onSave()
         }
         catch (error: any) {

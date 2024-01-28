@@ -19,7 +19,7 @@ const Accordion = styled((props: AccordionProps) => (
     '.MuiAccordionSummary-root': {
         backgroundColor: '#222222',
     },
-    fontSize: 'x-large'
+    fontSize: 'medium'
 }));
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (

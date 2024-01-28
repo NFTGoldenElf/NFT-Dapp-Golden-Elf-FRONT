@@ -45,13 +45,13 @@ const ConnectMetaMask: FC = () => {
             }
 
             {hasProvider && wallet.accounts.length <= 0 &&
-                <MetaMaskLogo style="w-20 cursor-pointer" onClickFunction={handleConnect} />
+                <MetaMaskLogo style="xl:w-20   phone:w-14 cursor-pointer" onClickFunction={handleConnect} />
             }
 
             {hasProvider && wallet.accounts.length > 0 &&
-                <div className={`space-x-5 items-center flex  justify-end`}>
-                    <label>{wallet.balance}</label>
-                    <MetaMaskLogoActive style="w-20 cursor-pointer" onClick={() => navigate('/perfil')} />
+                <div className={`xl:space-x-5 lg:space-x-2 md:space-x-2 sm:md:space-x-2 phone:md:space-x-2 items-center flex  justify-end`}>
+                    <label className="xl:text-md lg:text-md md:text-md sm:text-sm ">{wallet.balance}</label>
+                    <MetaMaskLogoActive style="xl:w-20 lg:w-16 md:w-14 sm:w-12 phone:w-10 cursor-pointer" onClick={() => navigate('/perfil')} />
                 </div>
             }
         </>
