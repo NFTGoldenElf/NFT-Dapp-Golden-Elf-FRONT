@@ -108,7 +108,7 @@
 .carousel-third-section {
     position: relative;
     top: 13%;
-    width: 100%;
+    width: 95%;
     height: fit-content;
     display: flex;
     justify-content: center;
@@ -270,6 +270,10 @@
     .p-second-section{
         font-size: 90%;
     }
+    .carousel-third-section{
+        justify-content: center;
+        align-items: center;
+    }
 }
 @media (max-width: 800px){
    .first-section{
@@ -280,6 +284,21 @@
    .p-second-section{
     font-size: 85%;
 }
+.white-line-third-section{
+    display: none;
+}
+.white-line-fourth-section{
+    display: none;
+}
+.fourth-section{
+    height: 101%;
+    width: 125%;
+    right: 10%;
+}
+.fifth-section{
+    width: 115%;
+}
+
     
 }
 @media (max-width: 751px) {
@@ -316,10 +335,25 @@
     .arrows{
         display: none;
     }
+    .fifth-section{
+        right: 25%;
+        width: 140%;
+    }
+    .carousel-third-section{
+        width: 110%;
+    }
 }
 @media (max-width:567px){
     .p-second-section{
         font-size: 75%;
+    }
+    .fourth-section{
+        height: 101%;
+        width: 135%;
+        right: 18%;
+    }
+    .footer-text{
+        font-size: small;
     }
 }
 @media (max-width:506px){

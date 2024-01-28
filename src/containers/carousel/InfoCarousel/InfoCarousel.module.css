@@ -44,3 +44,18 @@
 .next:hover {
     background-color: rgba(169, 169, 169, 0.2);
 }
+@media (max-width: 1200px){
+    .carousel-info{
+        width: 50%;
+    }
+ }
+ @media (max-width: 900px){
+    .carousel-info{
+        width: 60%;
+    }
+ }
+ @media (max-width: 800px){
+    .carousel-info{
+        width: 80%;
+    }
+ }

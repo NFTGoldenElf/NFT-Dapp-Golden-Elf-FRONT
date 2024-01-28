@@ -45,7 +45,7 @@ const ConnectMetaMask: FC = () => {
             }
 
             {hasProvider && wallet.accounts.length <= 0 &&
-                <MetaMaskLogo style="w-20 cursor-pointer" onClickFunction={handleConnect} />
+                <MetaMaskLogo style="xl:w-20   phone:w-14 cursor-pointer" onClickFunction={handleConnect} />
             }
 
             {hasProvider && wallet.accounts.length > 0 &&
