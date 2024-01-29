@@ -1,72 +1,109 @@
 .cls-1 {
-    filter: url(#outer-glow-1);
-}
-
-.cls-1,
-.cls-2,
-.cls-3 {
-    fill: #fff;
-}
-
-.cls-4 {
-    letter-spacing: -.05em;
-}
-
-.cls-5 {
-    letter-spacing: .01em;
-}
-
-.cls-6 {
-    letter-spacing: 0em;
-}
-
-.cls-2 {
-    font-family: GonB, Gon;
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.cls-7 {
-    letter-spacing: 0em;
-}
-
-.cls-8 {
-    letter-spacing: -.02em;
-}
-
-.cls-9 {
     letter-spacing: -.06em;
 }
 
+.cls-2 {
+    font-family: GonR;
+    font-weight: 300;
+}
+
+.cls-3 {
+    filter: url(#outer-glow-1);
+}
+
+.cls-3,
+.cls-4,
+.cls-5,
+.cls-6,
+.cls-7,
+.cls-8 {
+    fill: #fff;
+}
+
+.cls-9 {
+    letter-spacing: -.05em;
+}
+
 .cls-10 {
+    letter-spacing: .01em;
+}
+
+.cls-11 {
+    letter-spacing: -.03em;
+}
+
+.cls-4,
+.cls-8 {
+    font-size: 24px;
+}
+
+.cls-4,
+.cls-12 {
+    font-family: GonB;
+    font-weight: 700;
+}
+
+.cls-13 {
+    letter-spacing: 0em;
+}
+
+.cls-14 {
+    letter-spacing: -.02em;
+}
+
+.cls-15 {
+    letter-spacing: -.06em;
+}
+
+.cls-16 {
     fill: none;
-    filter: url(#outer-glow-3);
+    filter: url(#outer-glow-5);
     opacity: .37;
     stroke: #fff;
     stroke-miterlimit: 10;
     stroke-width: 3px;
 }
 
-.cls-11 {
-    letter-spacing: 0em;
+.cls-17 {
+    letter-spacing: .02em;
 }
 
-.cls-3 {
+.cls-5 {
+    filter: url(#outer-glow-3);
+}
+
+.cls-6 {
+    filter: url(#outer-glow-4);
+}
+
+.cls-7 {
     filter: url(#outer-glow-2);
 }
 
-.cls-12 {
-    letter-spacing: -.02em;
-}
-
-.cls-13 {
+.cls-18 {
     letter-spacing: .01em;
 }
 
-.cls-14 {
-    letter-spacing: .01em;
+.cls-19 {
+    letter-spacing: .04em;
 }
 
-.cls-15 {
+.cls-20 {
+    letter-spacing: .02em;
+}
+
+.cls-21 {
+    letter-spacing: 0em;
+}
+
+.cls-22 {
+    letter-spacing: 0em;
+}
+
+.cls-23 {
+    letter-spacing: .02em;
+}
+
+.cls-24 {
     letter-spacing: 0em;
 }
